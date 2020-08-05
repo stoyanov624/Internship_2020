@@ -14,6 +14,31 @@ const std::string& Library::getLibraryName() const
 	return this->library_name;
 }
 
+void Library::swap(Book& b1, Book& b2) {
+	Book temp = b1;
+	b1 = b2;
+	b2 = temp;
+}
+
+void Library::sort(std::function<bool(Book, Book)> f) {
+	const size_t SIZE = books.size();
+
+	for (size_t i = 0; i < SIZE; i++) {
+		for (size_t j = i + 1; j < SIZE; j++) {
+			if (f(books[i], books[j]))
+				swap(books[i], books[j]);
+		}
+	}
+}
+
+void Library::sortByTitle() {
+	sort([](Book b1, Book b2) { return b1.getBookName() > b2.getBookName(); });
+}
+
+void Library::sortByYear() {
+	sort([](Book b1, Book b2) { return b1.getBookYear() > b2.getBookYear(); });
+}
+
 const std::vector<Book>& Library::getLibraryBooks() const 
 {
 	return this->books;
@@ -74,23 +99,7 @@ Library& Library::removeBook(const Book& book)
 	}
 }
 
-Library& Library::sortBooks() 
-{
-	size_t books_count = books.size();
-	for (size_t i = 0; i < books_count - 1; i++)
-	{
-		for (size_t j = 0; j < books_count - i - 1; j++)
-		{
-			if (books[j].isLexicographicallyBiggerThan(books[j + 1])) 
-			{
-				this->swapBooks(books[j], books[j + 1]);
-			}
-		}
-	}
-	return *this;
-}
-
-void Library::printByCritique(std::function<bool(Book)> critique) 
+void Library::printByCriteria(std::function<bool(Book)> critique) 
 {
 	for(Book b : books)
 	{

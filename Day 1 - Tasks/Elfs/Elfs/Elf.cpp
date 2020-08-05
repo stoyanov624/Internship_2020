@@ -2,7 +2,7 @@
 
 Elf::Elf() : elf_name(), elf_age(1), elf_abillity(1) {}
 
-Elf::Elf(const std::string& _elf_name, const int& _elf_age, const int& _elf_abillity)
+Elf::Elf(const std::string& _elf_name, int _elf_age, int _elf_abillity)
 {
 	this->setElfName(_elf_name);
 	this->setElfAge(_elf_age);
@@ -14,7 +14,7 @@ void Elf::setElfName(const std::string& _elf_name)
 	this->elf_name = _elf_name;
 }
 
-void Elf::setElfAge(const int& _elf_age) 
+void Elf::setElfAge(int _elf_age) 
 {
 	if (_elf_age <= 0 || _elf_age > 300)
 	{
@@ -26,7 +26,7 @@ void Elf::setElfAge(const int& _elf_age)
 	}
 }
 
-void Elf::setElfAbillity(const int& _elf_abillity)
+void Elf::setElfAbillity(int _elf_abillity)
 {
 	if (_elf_abillity <= 0 || _elf_abillity > 15)
 	{
@@ -43,14 +43,24 @@ const std::string& Elf::getElfName() const
 	return this->elf_name;
 }
 
-const int& Elf::getElfAge() const 
+int Elf::getElfAge() const 
 {
 	return this->elf_age;
 }
 
-const int& Elf::getElfAbillity() const 
+int Elf::getElfAbillity() const 
 {
 	return this->elf_abillity;
+}
+
+bool Elf::operator==(const Elf& other_elf) const
+{
+	return (this->elf_abillity == other_elf.elf_abillity && this->elf_name == other_elf.elf_name && this->elf_age == other_elf.elf_age);
+}
+
+bool Elf::operator!=(const Elf& other_elf) const
+{
+	return !(*this == other_elf);
 }
 
 std::ostream& operator<<(std::ostream& out, const Elf& elf)
@@ -62,9 +72,3 @@ std::ostream& operator<<(std::ostream& out, const Elf& elf)
 	return out;
 }
 
-void Elf::printElf() const 
-{
-	std::cout << "Elf name: " << this->elf_name << std::endl;
-	std::cout << "Elf age: " << this->elf_age << std::endl;
-	std::cout << "Elf abillity: " << this->elf_abillity << std::endl;
-}

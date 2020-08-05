@@ -1,25 +1,25 @@
 
 #include <iostream>
+#include <map>
 
 int main()
 {
-	for (int i = 1; i <= 100; i++)
-	{
-		if (i % 3 == 0 && i % 5 == 0) 
-		{
-			std::cout << "FizzBuzz" << std::endl;
+	std::map<int, std::string> keys;
+	keys[3] = "Fizz";
+	keys[7] = "Buzz";
+	keys[8] = "Cozz";
+
+	for (size_t i = 1; i <= 100; i++) {
+		std::string str;
+
+		for (auto it = keys.begin(); it != keys.end(); ++it) {
+			if (i % it->first == 0)
+				str.append(it->second);
 		}
-		else if (i % 3 == 0) 
-		{
-			std::cout << "Fizz" << std::endl;
-		}
-		else if (i % 5 == 0) 
-		{
-			std::cout << "Buzz" << std::endl;
-		}
-		else 
-		{
+
+		if (str.empty())
 			std::cout << i << std::endl;
-		}
+		else
+			std::cout << str << std::endl;
 	}
 }
