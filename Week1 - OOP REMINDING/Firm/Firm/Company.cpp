@@ -4,7 +4,7 @@ Company::Company() : company_name(),employees() {}
 
 Company::Company(const std::string& _company_name) : company_name(_company_name),employees() {}
 
-Company& Company::hire_employee(Employee* employee) 
+Company& Company::hire_employee(const Employee& employee) 
 {
 	this->employees.push_back(employee);
 	return *this;
@@ -16,6 +16,6 @@ void Company::print_employees() const
 	std::cout << "Employees: " << std::endl;
 	for (size_t i = 0,SIZE = this->employees.size(); i < SIZE; i++)
 	{
-		this->employees[i]->print();
+		this->employees[i].print();
 	}
 }

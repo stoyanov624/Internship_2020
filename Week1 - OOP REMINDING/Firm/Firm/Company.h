@@ -6,11 +6,11 @@ class Company
 {
 private:
 	std::string company_name;
-	std::vector<Employee*> employees;
+	std::vector<Employee> employees;
 public:
 	Company();
 	Company(const std::string& _company_name);
-	Company& hire_employee(Employee* employee);
+	Company& hire_employee(const Employee& employee);
 	void print_employees() const;
 };
 

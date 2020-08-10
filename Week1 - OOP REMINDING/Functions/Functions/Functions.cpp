@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <functional>
 #include <vector>
@@ -17,10 +15,10 @@ std::function<T(T)> maximizing(const T& argument,const std::vector<std::function
 	}
 	std::cout << "RETURNING FUNCTION #" << max_index + 1 << std::endl;
 	return functions[max_index];
-}*/
+} */
 
 template <class T>
-std::function<T(T)> extreme(const T& argument, const std::vector<std::function<T(T)>>& functions, std::function<bool(T,T)> comparator)
+std::function<T(T)> extreme(const T& argument, const std::vector<std::function<T(T)>>& functions,const std::function<bool(T,T)>& comparator)
 {
 	size_t max_index = 0;
 	for (size_t i = 1, SIZE = functions.size(); i < SIZE; i++)
@@ -48,7 +46,6 @@ std::function<T(T)> minimizing(const T& argument, const std::vector<std::functio
 	std::function<bool(T, T)> greaterThan = [](T left, T right) { return left > right; };
 	return extreme(argument, functions, greaterThan);
 }
-
 
 int main()
 {

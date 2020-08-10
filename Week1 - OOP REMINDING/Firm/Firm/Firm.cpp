@@ -4,9 +4,9 @@
 #include "Company.h"
 int main()
 {
-	Employee* p1 = new Employee("John","Johnson",23,"CEO",6666);
-	Employee* p2 = new Employee("Jack","Jackson",20,"High-tier Slave",10);
-	Employee* p3 = new Employee("Tom","Thomson",18,"Slave",0);
+	Employee p1("John","Johnson",23,"CEO",6666);
+	Employee p2("Jack","Jackson",20,"High-tier Slave",10);
+	Employee p3("Tom","Thomson",18,"Slave",0);
 	Company c1("Sony");
 
 	c1.hire_employee(p1);
