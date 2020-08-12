@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="House.h" />
+    <ClInclude Include="HouseOwner.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Worker.h" />
   </ItemGroup>

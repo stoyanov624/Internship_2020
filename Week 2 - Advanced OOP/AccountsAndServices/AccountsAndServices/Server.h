@@ -19,16 +19,16 @@ class LoginService {
 private:
 	LoginServiceDelegate* delegate;
 public:
-	LoginService(LoginServiceDelegate* del = nullptr) : delegate(del) {}
+	LoginService(LoginServiceDelegate* del) : delegate(del) {}
 
 	void login_user(const std::string& username, const std::string& password) 
 	{
-		if (username != username) {
+		if (Account::getInstance()->getUsername() != username) {
 			delegate->invalidUsername();
 			return;
 		}
 		
-		if (Account::getInstance()->getUsername() != password) {
+		if (Account::getInstance()->getPassword() != password) {
 			delegate->invalidPassword();
 			return;
 		}
@@ -41,7 +41,7 @@ class RegisterService {
 private:
 	RegisterServiceDelegate* delegate;
 public:
-	RegisterService(RegisterServiceDelegate* del = nullptr) : delegate(del){}
+	RegisterService(RegisterServiceDelegate* del) : delegate(del){}
 
 	void register_user() {
 		if (Account::getInstance()->getRegisteredStatus()) {
@@ -54,10 +54,10 @@ public:
 
 class Server : LoginServiceDelegate, RegisterServiceDelegate {
 private:
-	LoginService* l_service;
-	RegisterService* r_service;
+	LoginService l_service;
+	RegisterService r_service;
 public:
-	Server() : l_service(nullptr),r_service(nullptr) {}
+	Server() : l_service(this),r_service(this) {}
 
 	void invalidUsername() {
 		std::cout << "Wrong username!" << std::endl;
@@ -70,17 +70,17 @@ public:
 	}
 	void succesfulRegister() {
 		std::cout << "Succesful register!" << std::endl;
-		l_service->login_user(Account::getInstance()->getUsername(),Account::getInstance()->getPassword());
+		l_service.login_user(Account::getInstance()->getUsername(),Account::getInstance()->getPassword());
 	}
 	void succesfulLogin() {
 		std::cout << "Succesful login!" << std::endl;
 	}
 
 	void login(const std::string& username,const std::string& password) {
-		l_service->login_user(username,password);
+		l_service.login_user(username,password);
 	}
 	
 	void reg() {
-		r_service->register_user();
+		r_service.register_user();
 	}
 };
