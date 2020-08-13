@@ -1,82 +1,97 @@
 #pragma once
-#include <iostream>
 #include "Account.h"
+#include <iostream>
 #include <vector>
+#include <string>
+#include <assert.h>
 
-//class LoginServiceDelegate {
-//public:
-//	virtual void invalidUsername() = 0;
-//	virtual void invalidPassword() = 0;
-//	virtual void succesfulLogin() = 0;
-//};
-//
-//class RegisterServiceDelegate {
-//public:
-//	virtual void existingAccount() = 0;
-//	virtual void succesfulRegister() = 0;
-//};
-
-class SuccesfulRegisterObserver {
+// Delegates
+class LoginServiceDelegate {
 public:
-	virtual void update() = 0;
+	virtual void wrongUsername() = 0;
+	virtual void wrongPassword() = 0;
 };
 
-class SuccesfulRegisterSubject {
-private:
-	std::vector<SuccesfulRegisterObserver*> observers;
+class RegisterServiceDelegate {
 public:
-	void addObserver(SuccesfulRegisterObserver* observer) {
-		this->observers.push_back(observer);
+	virtual void usernameTaken() = 0;
+	virtual void successfullyRegistered() = 0;
+};
+
+// Observers
+class RegisteredObserver {
+public:
+	virtual void update(const std::string& username, const std::string& password) = 0;
+};
+
+class RegisteredSubject {
+	std::vector<RegisteredObserver*> observers;
+	std::string username;
+	std::string password;
+public:
+	void addObserver(RegisteredObserver* obs) {
+		this->observers.push_back(obs);
+	}
+
+	void addCredentials(const std::string& username, const std::string& password) {
+		this->username = username;
+		this->password = password;
 	}
 
 	void notify() {
-		for (SuccesfulRegisterObserver* observer : observers) {
-			observer->update();
+		for (RegisteredObserver* observer : observers) {
+			observer->update(username, password);
 		}
 	}
 };
 
-class Server {
-private:
-	SuccesfulRegisterSubject* succesfulReg;
+class RegisterService {
+	RegisteredSubject* subject;
 public:
-	//Server() : l_service(this),r_service(this) {}
+	RegisterService() {
+		subject = new RegisteredSubject();
+	}
 
+	void addRegistrationObserver(RegisteredObserver* obs) {
+		subject->addObserver(obs);
+	}
+
+	void _register() {
+		// ....
+		// if registration was successfull
+		subject->addCredentials(Account::getInstance()->getUsername(), Account::getInstance()->getPassword());
+		subject->notify();
+		// ....
+	}
+};
+
+class LoginService : public RegisteredObserver {
+public:
+	LoginService() {}
+
+	void update(const std::string& username, const std::string& password) {
+		std::cout << "Login service was notified for a correct registration!" << std::endl;
+	}
+};
+
+class Server : public RegisteredObserver {
+	LoginService* loginService;
+	RegisterService* regService;
+public:
 	Server() {
-		succesfulReg = new SuccesfulRegisterSubject();
-	}
-	//void invalidUsername() {
-	//	std::cout << "Wrong username!" << std::endl;
-	//}
-	//void invalidPassword() {
-	//	std::cout << "Wrong password!" << std::endl;
-	//}
-	//void existingAccount() {
-	//	std::cout << "Account with that username already exists!" << std::endl;
-	//}
-	//void succesfulRegister() {
-	//	std::cout << "Succesful register!" << std::endl;
-	//	l_service.login_user(Account::getInstance()->getUsername(),Account::getInstance()->getPassword());
-	//}
-	//void succesfulLogin() {
-	//	std::cout << "Succesful login!" << std::endl;
-	//}
-
-	//void login(const std::string& username,const std::string& password) {
-	//	l_service.login_user(username,password);
-	//}
-	//
-	void reg() {
-		if (Account::getInstance()->getRegisteredStatus()) 
-		{
-			std::cout << "Account already exists :(\n";
-			return;
-		}
-		Account::getInstance()->setRegisteredStatus(true);
-		this->succesfulReg->notify();
+		loginService = new LoginService();
+		regService = new RegisterService();
+		regService->addRegistrationObserver(this);
 	}
 
-	void addObserverSuccesfulRegistration(SuccesfulRegisterObserver* observer) {
-		this->succesfulReg->addObserver(observer);
+	void update(const std::string& username, const std::string& password) {
+		std::cout << "Succesfully registered new account!" << std::endl;
+		std::cout << "Username entered: " << username << std::endl;
+		std::cout << "Password entered: " << password << std::endl;
+		loginService->update(username, password);
+	}
+
+	void run() {
+		regService->_register();
 	}
 };
