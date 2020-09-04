@@ -1,0 +1,64 @@
+body {
+    font-family: fantasy; font-size: 16px; font-weight: 400; color: white; margin: 0; padding: 0;
+}
+
+#page {
+    max-width: 1200px; margin: 0 auto; position: relative;
+}
+
+header {
+    height: 450px;
+    background: url(images/tech.jpg) no-repeat 0 0; background-size: contain;
+    position: relative;
+}
+
+header a.logo {
+    z-index: 1px;
+    position: absolute;
+    display: block; width: 200px; height: 100px; color: white;
+    top: 30px;
+    font-size: 35px;
+    text-align: center;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+header div.practise {
+    position: absolute;
+    width: 300px;
+    top: 40%;
+    right: 20%;
+}
+
+header div.counter {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 2%;
+    bottom: -3%;
+}
+
+.btn {
+    display: block;
+    position: absolute; left: 23.5%; width: 10rem; height: 2.5rem;
+    background: none; border-style: solid;  border-color: white; 
+    border-radius: 5px;
+    text-align: center; color: rgb(88, 170, 247); font-family: fantasy; font-size: 1.2rem;
+    transition-duration: 0.2s;
+
+}
+
+.btn:hover {
+    background-color: rgba(0, 43, 124, 0.6);
+}
+
+.btn:active {
+    background-color: #ffffff;
+    box-shadow: 0 5px #666;
+    transform: translate(4px);
+}
+
+
+

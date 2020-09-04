@@ -1,3 +1,0 @@
-﻿  Relations_Math.cpp
-E:\Internship 2020\Week1 - OOP REMINDING\Relations_Math\Relations_Math\Relation.h(137): warning C4715: 'Relation<int,int>::operator[]': not all control paths return a value
-  Relations_Math.vcxproj -> E:\Internship 2020\Week1 - OOP REMINDING\Relations_Math\Debug\Relations_Math.exe

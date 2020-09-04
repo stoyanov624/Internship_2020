@@ -1,0 +1,3 @@
+[submodule "interns"]
+	path = interns
+	url = https://github.com/destroierdam/interns.git
