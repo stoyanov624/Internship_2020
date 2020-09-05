@@ -1,0 +1,105 @@
+* {
+    font-family: cursive;
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+    background-color: green;
+}
+
+body {
+    margin: 0 auto; padding: 0;
+}
+
+header {
+    text-align: center;
+} 
+
+.title {
+    font-family: cursive; font-size: 3em;
+    display: inline-block; box-sizing: border-box;
+    text-align: center; text-overflow: clip;
+    color: white;
+}
+
+.console {
+    position: relative;
+    width: 350px; margin: 0.5em auto;
+    color: red;
+}
+
+.console_button {
+    font-size: 1.5em; font-weight: 550; padding: 0.1em 0.5em;
+    border-radius: 5em; border: 0.1em solid rgb(1, 90, 1);
+    outline: none;
+}
+
+.console_button:active {
+    background-color: #ffffff;
+    box-shadow: 0 0 3px 3px rgb(255, 37, 37);
+    transform: translate(4px);
+}
+
+
+#start {
+    float : left;
+}
+
+#reset {
+    float: right;
+}
+
+.centered {
+    font: normal 21px/normal 'Merriweather', serif;
+    position: relative; overflow: hidden;
+    color: blue;
+    height: 650px; width: 650px;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+
+.board {
+    color: green;
+}
+
+.dealer {
+    color: black;
+    text-align: center;
+}
+
+.dealer_cards, .player_cards {
+    overflow: hidden;
+    margin: auto;
+    display: inline-block;
+    padding: 10px 60px 10px 10px;
+    color: grey;
+}
+
+.board ul {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+}
+
+.board li {
+    position: relative;
+    display: block;
+    width: 25px;
+    float: left;
+}
+
+.board img {
+    height: 110px;
+    display: block;
+}
+
+.player {
+    color: white;
+    padding-top: 5em;
+    text-align: center;
+}
+
+.player_cards {
+    color: purple;
+}
