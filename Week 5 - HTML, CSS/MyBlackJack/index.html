@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -14,8 +15,8 @@
         <header>
             <h1 class="title">BlackJack!</h1>
             <section class="console">
-                <button class="console_button" id="start">start</button>
-                <button class="console_button" id="reset">reset</button>
+                <button class="console_button" id="start">Start</button>
+                <button class="console_button" id="quit">Quit</button>
             </section>
         </header>
 
@@ -25,21 +26,26 @@
                     <h1>Dealer's Hand</h1>
                     <section class="dealer_cards">
                         <ul>
-                            <li><img src="/cards/10_of_clubs.svg" alt=""></li>
                         </ul>
                     </section>
                 </div>
                 <div class = "player">
                     <section class="player_cards">
-                        <ul>
-                            <li><img src="/cards/10_of_clubs.svg"
-                                alt=""></li>
+                        <ul id="p_cards">
                         </ul>
                     </section>
                     <h1>Player's Hand</h1>
                 </div>
             </section>
         </div>
+
+       <div class="player_score">
+           <p>Score: 0</p>
+       </div>
+        <section class="player_console" style="visibility: hidden;", id="p_console">
+            <button class="console_button" id="hit">Hit</button>
+            <button class="console_button" id="stand">Stand</button>
+        </section>
         
         <script src='main.js'></script>
     </body>

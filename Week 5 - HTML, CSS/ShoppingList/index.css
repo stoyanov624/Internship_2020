@@ -84,7 +84,7 @@ h1 {
 }
 
 .removeIcon {
-    background-image: url(/images/icon.png);
+    background-image: url(images/icon.png);
     border-radius: 0.5em;
     display: block;
     width: 20px;

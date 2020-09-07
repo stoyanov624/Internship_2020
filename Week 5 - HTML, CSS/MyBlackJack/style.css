@@ -46,7 +46,7 @@ header {
     float : left;
 }
 
-#reset {
+#quit {
     float: right;
 }
 
@@ -54,7 +54,7 @@ header {
     font: normal 21px/normal 'Merriweather', serif;
     position: relative; overflow: hidden;
     color: blue;
-    height: 650px; width: 650px;
+    height: 600px; width: 650px;
     margin: 0 auto;
     padding-top: 2em;
 }
@@ -89,7 +89,7 @@ header {
     float: left;
 }
 
-.board img {
+.card {
     height: 110px;
     display: block;
 }
@@ -102,4 +102,37 @@ header {
 
 .player_cards {
     color: purple;
+}
+
+.player_score {
+    position: relative;
+    width: 10%;
+    bottom: 350px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 1em;
+    box-shadow: 0px 9px 25px rgba(0,0,0,.7);
+}
+
+.player_score p {
+    text-align: center;
+    color: yellow;
+    font-weight: 700;
+    font-family: fantasy;
+    font-size: 1.2em;
+}
+.player_console {
+    position: relative;
+    width: 250px;
+    color: red;
+    margin: auto;
+    bottom: 100px;
+}
+
+#hit {
+    float: left;
+}
+
+#stand {
+    float: right;
 }
