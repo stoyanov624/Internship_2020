@@ -24,12 +24,25 @@
             <section class="board">
                 <div class = "dealer">
                     <h1>Dealer's Hand</h1>
+                    <div class="hand_value" style="visibility: hidden;">
+                        <p id="d_value">0</p>
+                    </div>
                     <section class="dealer_cards">
-                        <ul>
-                        </ul>
+                        
+                        <ul id="d_cards"></ul>
                     </section>
                 </div>
+                
+                
+                <div id="deck_pic" style="visibility: hidden;"> 
+                        <img src="/cards/back.jpg" alt="">
+                </div>
+
+
                 <div class = "player">
+                    <div class="hand_value" style="visibility: hidden;">
+                        <p id="p_value">0</p>
+                    </div>
                     <section class="player_cards">
                         <ul id="p_cards">
                         </ul>

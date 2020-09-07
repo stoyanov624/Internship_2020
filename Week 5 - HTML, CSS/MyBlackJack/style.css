@@ -70,6 +70,7 @@ header {
 
 .dealer_cards, .player_cards {
     overflow: hidden;
+    height: 110px;
     margin: auto;
     display: inline-block;
     padding: 10px 60px 10px 10px;
@@ -82,16 +83,12 @@ header {
     margin: auto;
 }
 
-.board li {
+.board img {
     position: relative;
-    display: block;
-    width: 25px;
-    float: left;
-}
-
-.card {
     height: 110px;
-    display: block;
+    float: left;
+    margin-right: -2em;
+    box-shadow: 5px 3px 2px 1px black;
 }
 
 .player {
@@ -102,6 +99,24 @@ header {
 
 .player_cards {
     color: purple;
+}
+
+.hand_value {
+    position: relative;
+    display: flex;
+    width: 20px; height: 0;
+    color: black;
+    font-weight: 600;
+    margin-left: 1.5em;
+    
+}
+
+#d_value {
+    margin-top: 4em;
+}
+
+#p_value {
+    margin-top: 1.3em;
 }
 
 .player_score {
