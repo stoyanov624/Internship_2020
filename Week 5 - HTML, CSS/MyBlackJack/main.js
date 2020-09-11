@@ -168,6 +168,7 @@ start_btn.addEventListener('click', () => {
 
 quit_btn.addEventListener('click', () => {
     player_console.style.visibility='hidden';
+    deck_pic.style.visibility='hidden';
     quit_btn.disabled = true;
     start_btn.disabled = false;
     score = 0;
