@@ -1,0 +1,145 @@
+    body {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+
+    background: transparent linear-gradient(125deg, #D1D6FF 0%, #F5D5FF 100%) 
+                0% 0% no-repeat padding-box;
+
+}
+
+.container {
+    width: 677px;
+    height: 749px;
+    
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #F800C628;
+    border-radius: 30px;
+    opacity: 1;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+}
+
+.heading {
+    text-align: center;
+    letter-spacing: 0px;
+    color: #030AC4;
+    opacity: 1;
+}
+
+h1 {
+    margin: auto;
+    margin-top: 65px;
+    width: 242px;
+    height: 87px;
+    font: normal normal normal 69px/87px Staatliches;
+    border-bottom: 14px solid #EBD5FF; 
+    padding: 0 10px;
+}
+
+.inputHolder {
+    width: 379px;
+    height: 50px;
+    display: grid;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #C5C5C5;
+    border-radius: 13px;
+    opacity: 1;
+
+    text-align: left;
+    font: normal normal normal 20px/27px Segoe UI;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+
+    padding-left: 3%;
+    outline: none;
+}
+
+
+#username {
+    margin: 34px auto;
+}
+
+#password {
+    margin: 35px auto;
+}
+
+#sign_in_btn {
+    
+    width: 195px;
+    height: 56px;
+    display: block;
+    margin: auto;
+
+    background: transparent linear-gradient(110deg, #8F46FF 0%, #246AE2 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 14px #F800C629;
+    border-radius: 28px;
+    border: none;
+    opacity: 1;
+    outline: none;
+    
+    font: normal normal bold 16px/19px 'Montserrat',sans-serif;
+    font-weight: 800;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+#sign_in_btn:hover {
+    cursor: pointer;
+    background: transparent linear-gradient(110deg, #AE43FF 0%, #2A24E2 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 14px #F800C629;
+}
+
+#sign_in_btn:active {
+    background: transparent linear-gradient(110deg, #AE43FF 0%, #2A24E2 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 14px #F800C666;
+}
+
+p {
+    text-align: center;
+    font: normal normal normal 16px/19px 'Montserrat',sans-serif;
+    letter-spacing: 0px;
+    opacity: 1;
+    font-weight: 500;
+}
+
+#forgotten_password {
+    margin-top: 5%;
+}
+
+#or_divider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7%;
+    font: normal normal normal 25px/32px Staatliches;
+}
+
+#or_divider::before, #or_divider::after {
+    position: relative;
+    display: block;
+    margin: auto -1em;
+    width: 45%;
+    height: 7px;
+    background: #EBD5FF 0% 0% no-repeat padding-box;
+    content: "";
+}
+
+#under_or {
+    margin-top: -1%;
+}
+
+.social_media {
+    display: flex;
+    justify-content: space-between;
+    margin: 10% 30%;
+}
+
+
