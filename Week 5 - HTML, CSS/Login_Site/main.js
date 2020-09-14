@@ -1,5 +1,3 @@
-var media_screen = window.matchMedia("(min-width: 600px");
-
 let mobile_account_btn = document.getElementById('acc_btn');
 let mobile_social_btn = document.getElementById('soc_btn');
 let mobile_bottom = document.getElementById('bot');
@@ -19,10 +17,17 @@ mobile_account_btn.addEventListener('click', () => {
     mobile_account_btn.style.backgroundColor ='#FFFFFF';
 });
 
-if(window.innerWidth > 700) {
-    console.log('test');
-    mobile_log_console.style.display = 'block';
-    mobile_bottom.style.display = 'block';
+var media_screen = window.matchMedia("(min-width: 600px)");
+
+media_screen.addEventListener("change", (e) => 
+{
+    if(e.matches) {
+        mobile_log_console.style.display = 'block';
+        mobile_bottom.style.display = 'block';
+    }
+    else
+    {
+        mobile_bottom.style.display = 'none';
+    }
 }
-
-
+);
