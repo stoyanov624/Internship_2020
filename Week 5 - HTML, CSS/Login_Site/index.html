@@ -6,6 +6,7 @@
         <title>Login</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='responsive.css'>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat400,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     </head>
@@ -14,27 +15,23 @@
         <div class="center">
             <div class="hero" > </div> 
             <div class="console">
-            
-                <div class= "top">
 
-                    <h1 class="heading">Welcome!</h1>
-                    <div class="mobile_btn" style="visibility: hidden;">
-                        <button class="account_btn">Account</button>
-                        <button class="social_btn">Social</button>
-                    </div>
+                <h1 class="heading">Welcome!</h1>
+                <div class="mobile_btn" style="visibility: hidden;">
+                    <button class="account_btn" id="acc_btn">Account</button>
+                    <button class="social_btn" id="soc_btn">Social</button>
+                </div>
 
+                <div class= "top" id='loging'>
                     <input placeholder="Username" type="text" class="inputHolder" id="username">
                     <input placeholder="Password" type="text" class="inputHolder" id="password">
                     
                     <button class="btn" id="sign_in_btn">Sign In</button>
                     <p id="forgotten_password">Forgot your password? <a href="#"> Click here</a></p>
 
-                    
                 </div>
-
-               
-
-                <div class="bottom">
+                
+                <div class="bottom" id="bot">
                     <h2 class="heading" id="or_divider">OR</h2>
 
                     <p id="under_or">Log in with:</p>
