@@ -15,6 +15,7 @@ body {
     display: flex;
     width: 1354px;
     height: 749px;
+    animation: slide-upwards 700ms ease;
 }
 
 .mobile_btn {
@@ -166,4 +167,16 @@ p {
     margin: 10% 25%;
 } 
 
+@keyframes slide-upwards {
+    0% {
+        opacity: 0;
+        transform: translateY(1000px);
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 
