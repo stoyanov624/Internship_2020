@@ -1,3 +1,6 @@
 [submodule "interns"]
 	path = interns
 	url = https://github.com/destroierdam/interns.git
+[submodule "Week"]
+	path = Week
+	url = https://github.com/Nakahotty/Trivia-Quiz.git
